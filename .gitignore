@@ -1,0 +1,7 @@
+.env
+node_modules/
+*.DS_Store
+public/
+dist/
+npm-debug.log*
+yarn.lock

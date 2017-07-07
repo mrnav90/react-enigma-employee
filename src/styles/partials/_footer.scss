@@ -1,0 +1,14 @@
+.footer-container {
+  position: absolute;
+  background-color: $background-footer;
+  bottom: 0;
+  text-align: center;
+  font-size: 13px;
+  width: 100%;
+  color: $footer-text;
+  .copy-right {
+    padding: 15px;
+    display: block;
+    border-top: 1px solid $border-footer;
+  }
+}
