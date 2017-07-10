@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 import {translate} from 'utils';
+import {closeSidebar} from 'actions';
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    const {isShow, style} = this.props.sidebar;
     return (
-      <div className="sidebar-container" style={this.props.styles}>
+      <div className="sidebar-container" style={style}>
         <div className="layer" onClick={this.props.closeSidebar}></div>
-        <div className={classNames('container animated', {'slide-in-right': this.props.isShow, 'slide-out-right': !this.props.isShow})}>
+        <div className={classNames('container animated', {'slide-in-right': isShow, 'slide-out-right': !isShow})}>
           <div className="logo"></div>
           <ul>
             <li><Link><span className="icon-sidebar top-icon"></span>{translate('top')}</Link></li>
@@ -29,7 +32,19 @@ export default class Sidebar extends React.Component {
 }
 
 Sidebar.propTypes = {
-  isShow: PropTypes.bool.isRequired,
-  closeSidebar: PropTypes.func.isRequired,
-  styles: PropTypes.object.isRequired
+  sidebar: PropTypes.object.isRequired,
+  closeSidebar: PropTypes.func.isRequired
 };
+
+export default connect(
+  state => {
+    return {
+      sidebar: state.sidebar
+    };
+  },
+  dispatch => {
+    return {
+      closeSidebar: () => dispatch(closeSidebar())
+    };
+  }
+)(Sidebar);

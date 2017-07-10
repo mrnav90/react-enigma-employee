@@ -1,49 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Sidebar from './Sidebar';
-import {openSidebar, closeSidebar} from 'actions';
+import {openSidebar} from 'actions';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isShowSidebar: false,
-      displaySidebar: 'none'
-    };
-    this.openSidebar = this.openSidebar.bind(this);
-    this.closeSidebar = this.closeSidebar.bind(this);
-  }
-
-  openSidebar() {
-    this.setState({isShowSidebar: true, displaySidebar: 'block'});
-  }
-
-  closeSidebar() {
-    this.setState({isShowSidebar: false});
-    setTimeout(() => {
-      this.setState({displaySidebar: 'none'});
-    }, 500);
   }
 
   render() {
-    const styles = {
-      display: this.state.displaySidebar
-    };
     return (
-      <div className="header-wrapper">
-        <header className="header-container">
+      <header className="header-container">
+        <div className="container">
           <h1 className="logo"></h1>
-          <i className="icon-menu" onClick={this.openSidebar}></i>
-        </header>
-        <Sidebar isShow={this.state.isShowSidebar} closeSidebar={this.closeSidebar} styles={styles}/>
-      </div>
+          <i className="icon-menu" onClick={this.props.openSidebar}></i>
+        </div>
+      </header>
     );
   }
 }
 
+Header.propTypes = {
+  openSidebar: PropTypes.func.isRequired
+};
+
 export default connect(null, dispatch => {
   return {
-    openSidebar: () => dispatch(openSidebar()),
-    closeSidebar: () => dispatch(closeSidebar())
+    openSidebar: () => dispatch(openSidebar())
   };
 })(Header);

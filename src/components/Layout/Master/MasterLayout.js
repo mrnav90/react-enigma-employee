@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../Partials/Header';
 import Footer from '../Partials/Footer';
+import Sidebar from '../Partials/Sidebar';
 
 export default class MasterLayout extends React.Component {
   render() {
@@ -9,6 +10,7 @@ export default class MasterLayout extends React.Component {
     return (
       <div className="content-wrap">
         <Header/>
+        <Sidebar/>
         <main className="main-container">{childrenWithProps}</main>
         <Footer/>
       </div>
