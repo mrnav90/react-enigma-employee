@@ -1,9 +1,9 @@
 import Application from './Application';
-import SignIn from './SignIn';
+import Login from './Login';
 import NotFound from './NotFound';
 
 export {
   Application,
-  SignIn,
+  Login,
   NotFound
 };

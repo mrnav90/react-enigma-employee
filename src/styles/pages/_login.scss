@@ -44,4 +44,39 @@
       display: block;
     }
   }
+  .change-language {
+    cursor: pointer;
+    font-weight: bold;
+    color: #23527c;
+  }
+  .btn-login {
+    margin-bottom: 30px;
+  }
+}
+.forgot-link {
+  cursor: pointer;
+  i {
+    font-size: 18px;
+  }
+  .block-text {
+    display: inline-block;
+    padding-left: 15px;
+    span {
+      display: block;
+      text-align: center;
+      font-size: 12px
+    };
+  }
+  &.forgot-email {
+    color: #df3519;
+    i {
+      color: #df3519;
+    }
+  }
+  &.forgot-phone {
+    color: #004f89;
+    i {
+      color: #004f89;
+    }
+  }
 }

@@ -9,7 +9,7 @@ const I18N_DATA = {
   en: langEn,
   ja: langJa
 };
-const DEFAULT_LANGUAGE = 'ja';
+const DEFAULT_LANGUAGE = 'en';
 
 export {
   REQUEST_HEADER,

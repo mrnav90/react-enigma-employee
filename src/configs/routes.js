@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
-import {Application, SignIn, NotFound} from 'containers';
+import {Application, Login, NotFound} from 'containers';
 
 export default (
   <Route path="/" component={Application}>
-    <IndexRoute component={SignIn} />
+    <IndexRoute component={Login} />
     <Route path='*' component={NotFound} />
   </Route>
 );
