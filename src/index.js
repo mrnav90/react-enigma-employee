@@ -8,6 +8,7 @@ import {syncHistoryWithStore} from 'react-router-redux';
 import {Provider} from 'react-redux';
 import {routes, store} from 'configs';
 import {translationWithStore} from 'utils';
+import 'apis/config';
 import 'ladda';
 
 translationWithStore(store);

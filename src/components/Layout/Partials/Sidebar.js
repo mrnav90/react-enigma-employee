@@ -36,15 +36,16 @@ Sidebar.propTypes = {
   closeSidebar: PropTypes.func.isRequired
 };
 
-export default connect(
-  state => {
-    return {
-      sidebar: state.sidebar
-    };
-  },
-  dispatch => {
-    return {
-      closeSidebar: () => dispatch(closeSidebar())
-    };
-  }
-)(Sidebar);
+const mapStateToProps = (state) => {
+  return {
+    sidebar: state.sidebar
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    closeSidebar: () => dispatch(closeSidebar())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

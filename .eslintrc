@@ -12,7 +12,8 @@
     }
   },
   "globals": {
-    "document": true
+    "document": true,
+    "API_URL": true
   },
   "plugins": ["react"],
   "extends": ["eslint:recommended", "plugin:react/recommended"],

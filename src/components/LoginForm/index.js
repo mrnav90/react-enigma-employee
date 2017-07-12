@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {changeLanguage} from 'actions';
 import LoadingPage from 'components/LoadingPage';
-import {translate} from 'utils';
+import {translate, setLanguage} from 'utils';
+import {auth} from 'apis';
 
 class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       company_code: '',
       employee_code: '',
@@ -30,7 +31,9 @@ class LoginForm extends React.Component {
   }
 
   onChangeLanguage() {
-    this.props.changeLanguage('ja');
+    const key = this.props.translation.locale === 'en' ? 'ja' : 'en';
+    this.props.changeLanguage(key);
+    setLanguage(key);
     this.forceUpdate();
   }
 
@@ -40,6 +43,12 @@ class LoginForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+    const data = {
+      company_code: 'ltau9',
+      employee_code: '1',
+      employee_password: '1234567'
+    };
+    auth.actions.login.request({}, {data});
   }
 
   forgotPasswordViaEmail() {
@@ -118,11 +127,20 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
+  translation: PropTypes.object,
   changeLanguage: PropTypes.func.isRequired
 };
 
-export default connect(null, dispatch => {
+const mapStateToProps = (state) => {
+  return {
+    translation: state.i18n
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
   return {
     changeLanguage: (key) => dispatch(changeLanguage(key))
   };
-})(LoginForm);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

@@ -24,8 +24,10 @@ Header.propTypes = {
   openSidebar: PropTypes.func.isRequired
 };
 
-export default connect(null, dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     openSidebar: () => dispatch(openSidebar())
   };
-})(Header);
+};
+
+export default connect(null, mapDispatchToProps)(Header);

@@ -29,6 +29,7 @@ html, body {
   border: none;
   outline: none;
   border-radius: 0px;
+  z-index: 0;
   box-shadow: 0 1px 8px 0 rgba(0,0,0,.2);
   &:hover, &:active, &:focus, &:visited {
     background-color: #ffc674;
