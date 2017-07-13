@@ -48,7 +48,9 @@ class LoginForm extends React.Component {
       employee_code: '1',
       employee_password: '1234567'
     };
-    auth.actions.login.request({}, {data});
+    this.props.login(data).then((response) => {
+      console.log(response);
+    });
   }
 
   forgotPasswordViaEmail() {
@@ -128,7 +130,8 @@ class LoginForm extends React.Component {
 
 LoginForm.propTypes = {
   translation: PropTypes.object,
-  changeLanguage: PropTypes.func.isRequired
+  changeLanguage: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -139,7 +142,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeLanguage: (key) => dispatch(changeLanguage(key))
+    changeLanguage: (key) => dispatch(changeLanguage(key)),
+    login: (data) => auth.actions.login.request({}, {data})
   };
 };
 

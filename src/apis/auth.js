@@ -1,7 +1,7 @@
 import reduxAPI from 'redux-api';
 import axiosRequest from './axios';
 
-const auth = reduxAPI({
+export default reduxAPI({
   login: {
     url: 'authenticate',
     options: {
@@ -15,5 +15,3 @@ const auth = reduxAPI({
     }
   }
 }).use('fetch', axiosRequest).use('rootUrl', API_URL);
-
-export default auth;
