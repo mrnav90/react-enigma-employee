@@ -116,5 +116,9 @@
     "total_fee_include_tax": "システム手数料（税込）",
     "urgent": "緊急ニュース",
     "missing_amount_prepayable": "前払い可能までの金額",
-    "language": "English"
+    "language": "English",
+    "company_code_blank": "必須",
+    "employee_code_blank": "必須",
+    "password_blank": "必須",
+    "password_short": "パスワードが短すぎます。"
 }

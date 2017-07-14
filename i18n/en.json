@@ -116,5 +116,9 @@
     "total_fee_include_tax": "System fee (including tax)",
     "urgent": "Urgent",
     "missing_amount_prepayable": "Missing amount to prepayable",
-    "language": "日本語"
+    "language": "日本語",
+    "company_code_blank": "Company code can not be blank!",
+    "employee_code_blank": "Employee code can not be blank!",
+    "password_blank": "Password can not be blank!",
+    "password_short": "Password too short!"
 }
