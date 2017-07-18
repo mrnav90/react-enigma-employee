@@ -27,12 +27,13 @@ class LoginForm extends React.Component {
     this.onChangeLanguage = this.onChangeLanguage.bind(this);
     this.onChangeTextField = this.onChangeTextField.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.forgotPasswordViaEmail = this.forgotPasswordViaEmail.bind(this);
-    this.forgotPasswordViaPhone = this.forgotPasswordViaPhone.bind(this);
+    this.requestPasswordViaEmail = this.requestPasswordViaEmail.bind(this);
+    this.requestPasswordViaPhone = this.requestPasswordViaPhone.bind(this);
   }
 
   onShowPassowrd() {
-    this.setState({password_type: this.state.password_type === 'password' ? 'text' : 'password'});
+    const password_type = this.state.password_type === 'password' ? 'text' : 'password';
+    this.setState({password_type: password_type});
   }
 
   onChangeLanguage() {
@@ -58,13 +59,15 @@ class LoginForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     if (this.isValid()) {
+      const {company_code, employee_code, employee_password} = this.state;
       const data = {
-        company_code: 'ltau9',
-        employee_code: '1',
-        employee_password: '1234567'
+        company_code: company_code,
+        employee_code: employee_code,
+        employee_password: employee_password
       };
       this.setState({errors: {}, isSubmit: true});
-      this.props.login(data).then((response) => {
+      this.props.login(data).then(() => {
+        this.context.router.push('/');
         this.setState({isSubmit: false});
       }).catch((response) => {
         this.setState({isSubmit: false, messageErrors: response.errors});
@@ -72,12 +75,12 @@ class LoginForm extends React.Component {
     }
   }
 
-  forgotPasswordViaEmail() {
-
+  requestPasswordViaEmail() {
+    this.context.router.push('/request-password-via-email');
   }
 
-  forgotPasswordViaPhone() {
-
+  requestPasswordViaPhone() {
+    this.context.router.push('/request-password-via-phone');
   }
 
   render() {
@@ -95,7 +98,7 @@ class LoginForm extends React.Component {
                 </ControlLabel>
                 <FormControl type="text" disabled={isSubmit} onChange={this.onChangeTextField} value={company_code} maxLength="255" name="company_code" placeholder="ID"/>
                 {!isEmpty(errors) && <MessageError messageErrors={errors} field="company_code"/>}
-                {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="message"/>}
+                {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="company_code"/>}
               </FormGroup>
               <FormGroup>
                 <ControlLabel>
@@ -104,6 +107,7 @@ class LoginForm extends React.Component {
                 </ControlLabel>
                 <FormControl type="text" disabled={isSubmit} onChange={this.onChangeTextField} value={employee_code} maxLength="255" name="employee_code" placeholder="ID"/>
                 {!isEmpty(errors) && <MessageError messageErrors={errors} field="employee_code"/>}
+                {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="employee_code"/>}
               </FormGroup>
               <FormGroup>
                 <ControlLabel>
@@ -113,6 +117,7 @@ class LoginForm extends React.Component {
                 <FormControl type={this.state.password_type} onChange={this.onChangeTextField} value={employee_password} disabled={isSubmit} maxLength="255" name="employee_password" placeholder={translate('password')}/>
                 {!isEmpty(errors) && <MessageError messageErrors={errors} field="password"/>}
                 {!isEmpty(errors) && <MessageError messageErrors={errors} field="password_short"/>}
+                {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="employee_password"/>}
               </FormGroup>
               <FormGroup>
                 <Row>
@@ -138,7 +143,7 @@ class LoginForm extends React.Component {
               <Col md={5} mdOffset={1}>
                 <div className="forgot-link forgot-email">
                   <i className="fa fa-lock icon-lock"></i>
-                  <span className="block-text">
+                  <span className="block-text" onClick={this.requestPasswordViaEmail}>
                     <span>{translate('click_forgot_password')}</span>
                     <span>{translate('reset_password_via_email')}</span>
                   </span>
@@ -147,7 +152,7 @@ class LoginForm extends React.Component {
               <Col md={6}>
                 <div className="forgot-link forgot-phone">
                   <i className="fa fa-lock icon-lock"></i>
-                  <span className="block-text">
+                  <span className="block-text" onClick={this.requestPasswordViaPhone}>
                     <span>{translate('click_forgot_password')}</span>
                     <span>{translate('reset_password_via_phone')}</span>
                   </span>

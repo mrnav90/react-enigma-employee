@@ -12,7 +12,7 @@ export default (data) => {
   if (validator.isEmpty(data.employee_password)) {
     errors.password = 'password_blank';
   }
-  if (validator.isLength(data.employee_password) < 6) {
+  if (data.employee_password.length < 6) {
     errors.password_short = 'password_short';
   }
   return {
