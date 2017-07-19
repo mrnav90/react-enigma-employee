@@ -89,7 +89,7 @@ class LoginForm extends React.Component {
       <Grid>
         <Row>
           <Col md={4} mdOffset={4}>
-            <LoadingPage isShow={false} />
+            <LoadingPage isShow={isSubmit} />
             <Form className="login-form" onSubmit={this.onSubmit} name="loginForm" method="POST" noValidate>
               <FormGroup>
                 <ControlLabel>

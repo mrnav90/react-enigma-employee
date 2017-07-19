@@ -120,5 +120,7 @@
     "company_code_blank": "Company code can not be blank!",
     "employee_code_blank": "Employee code can not be blank!",
     "password_blank": "Password can not be blank!",
-    "password_short": "Password too short!"
+    "password_short": "Password too short!",
+    "email_blank": "Email can not be blank!",
+    "email_valid": "Email not valid!"
 }

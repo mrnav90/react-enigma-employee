@@ -26,6 +26,7 @@ html, body {
 .btn-submit {
   background-color: #ffad38;
   color: #fff;
+  font-size: 15px;
   border: none;
   outline: none;
   border-radius: 0px;
@@ -37,6 +38,26 @@ html, body {
     outline: none;
   }
 }
+.btn-back {
+  background-color: #ffe8c8;
+  color: #004f89;
+  z-index: 0;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  border-radius: 0px;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.2);
+  &.btn-default:active:focus, &.btn-default:active:hover {
+    color: #004f89;
+    background-color: #ffe8c8;
+    border-color: #ffe8c8;
+  }
+  &:hover, &:active, &:focus, &:visited {
+    background-color: #ffe8c8;
+    color: #004f89;
+    outline: none;
+  }
+}
 .required {
   margin-left: 5px;
   background: #cc1919;
@@ -44,4 +65,12 @@ html, body {
   font-size: 10px;
   padding: 3px;
   border-radius: 5px;
+}
+label {
+  font-weight: normal;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  border-radius: 0px;
 }

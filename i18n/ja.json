@@ -120,5 +120,7 @@
     "company_code_blank": "必須",
     "employee_code_blank": "必須",
     "password_blank": "必須",
-    "password_short": "パスワードが短すぎます。"
+    "password_short": "パスワードが短すぎます。",
+    "email_blank": "必須",
+    "email_valid": "入力したメールアドレスは無効です。"
 }
