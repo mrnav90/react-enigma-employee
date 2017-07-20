@@ -76,11 +76,11 @@ class LoginForm extends React.Component {
   }
 
   requestPasswordViaEmail() {
-    this.context.router.push('/request-password-via-email');
+    this.context.router.push('/reset-password/email');
   }
 
   requestPasswordViaPhone() {
-    this.context.router.push('/request-password-via-phone');
+    this.context.router.push('/reset-password/phone');
   }
 
   render() {

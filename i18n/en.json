@@ -21,6 +21,8 @@
     "update_user_info_title": "Please fill in the following contents.",
     "name": "Name",
     "name2": "Name",
+    "name_blank": "Name can not be blank!",
+    "phone_blank": "Phone number can not be blank!",
     "email_address": "Email address",
     "password": "Password",
     "password_confirm": "Password confirmation",
@@ -122,5 +124,6 @@
     "password_blank": "Password can not be blank!",
     "password_short": "Password too short!",
     "email_blank": "Email can not be blank!",
-    "email_valid": "Email not valid!"
+    "email_valid": "Email not valid!",
+    "phone_invalid": "Phone number is invalid!"
 }

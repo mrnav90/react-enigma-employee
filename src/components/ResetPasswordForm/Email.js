@@ -35,7 +35,7 @@ class ResetPasswordViaEmail extends React.Component {
       };
       this.setState({errors: {}, isSubmit: true});
       this.props.requestEmail(data).then(() => {
-        this.context.router.push('/request-password-success');
+        this.context.router.push('/reset-password/success');
         this.setState({isSubmit: false});
       }).catch((response) => {
         this.setState({isSubmit: false, messageErrors: response.errors});
@@ -66,7 +66,7 @@ class ResetPasswordViaEmail extends React.Component {
       <Grid>
         <Row>
           <Col md={4} mdOffset={4}>
-            <LoadingPage isShow={false} />
+            <LoadingPage isShow={isSubmit} />
             <Form className="reset-password-form" onSubmit={this.onSubmit} name="resetPasswordForm" method="POST" noValidate>
               <p className="title">
                 <span>{translate('register_your_email')}</span>
@@ -74,7 +74,7 @@ class ResetPasswordViaEmail extends React.Component {
               </p>
               <FormGroup>
                 <ControlLabel>
-                  {translate('company_code')}
+                  {translate('company_id')}
                   <span className="required">{translate('required')}</span>
                 </ControlLabel>
                 <FormControl type="text" disabled={isSubmit} onChange={this.onChangeTextField} value={company_code} maxLength="255" name="company_code" placeholder="ID"/>

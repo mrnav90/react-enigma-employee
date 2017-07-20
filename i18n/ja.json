@@ -21,6 +21,8 @@
     "update_user_info_title": "下記の内容をご記入ください。",
     "name": "お名前",
     "name2": "氏名",
+    "name_blank": "必須",
+    "phone_blank": "必須",
     "email_address": "メールアドレス",
     "password": "パスワード",
     "password_confirm": "パスワード（再入力）",
@@ -122,5 +124,6 @@
     "password_blank": "必須",
     "password_short": "パスワードが短すぎます。",
     "email_blank": "必須",
-    "email_valid": "入力したメールアドレスは無効です。"
+    "email_valid": "入力したメールアドレスは無効です。",
+    "phone_invalid": "電話番号が無効です"
 }

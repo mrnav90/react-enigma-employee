@@ -38,6 +38,15 @@ html, body {
     outline: none;
   }
 }
+.btn-link {
+  @extend .btn-submit;
+  text-decoration: none!important;
+  &:hover, &:active, &:focus, &:visited {
+    background-color: #ffad38;
+    color: #fff;
+    outline: none;
+  }
+}
 .btn-back {
   background-color: #ffe8c8;
   color: #004f89;

@@ -5,9 +5,9 @@ import {Application, Login, NotFound, RequestPasswordEmail, RequestPasswordPhone
 export default (
   <Route path="/" component={Application}>
     <Route path="sign-in" component={Login} />
-    <Route path="request-password-via-email" component={RequestPasswordEmail} />
-    <Route path="request-password-via-phone" component={RequestPasswordPhone} />
-    <Route path="request-password-success" component={RequestPasswordSuccess} />
+    <Route path="reset-password/email" component={RequestPasswordEmail} />
+    <Route path="reset-password/phone" component={RequestPasswordPhone} />
+    <Route path="reset-password/success" component={RequestPasswordSuccess} />
     <Route path="*" component={NotFound} />
   </Route>
 );
