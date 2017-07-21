@@ -47,10 +47,7 @@
   }
 }
 .forgot-link {
-  cursor: pointer;
-  i {
-    font-size: 18px;
-  }
+  i { font-size: 18px; }
   .block-text {
     display: inline-block;
     padding-left: 15px;
@@ -61,15 +58,11 @@
     };
   }
   &.forgot-email {
-    color: #df3519;
-    i {
-      color: #df3519;
-    }
+    a { color: #df3519; }
+    i { color: #df3519; }
   }
   &.forgot-phone {
-    color: #004f89;
-    i {
-      color: #004f89;
-    }
+    a { color: #004f89; }
+    i { color: #004f89; }
   }
 }

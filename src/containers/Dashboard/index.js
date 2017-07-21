@@ -1,7 +1,7 @@
 import React from 'react';
 import {MasterLayout} from 'components/Layout';
 
-export default class PageNotFound extends React.Component {
+export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -9,7 +9,7 @@ export default class PageNotFound extends React.Component {
   render() {
     return (
       <MasterLayout>
-        <div className="page-not-found">Not found</div>
+        <div className="dashboard">Dashboard</div>
       </MasterLayout>
     );
   }

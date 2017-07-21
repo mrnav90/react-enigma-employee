@@ -1,6 +1,6 @@
 import reduxAPI from 'redux-api';
 import axiosRequest from './axios';
-import {setUserInfo, setAccessToken} from 'utils';
+import {setUserInfo, setAccessToken, setCSRFToken} from 'utils';
 
 export default reduxAPI({
   login: {
@@ -9,6 +9,7 @@ export default reduxAPI({
       if (response && response.data) {
         setUserInfo(response.data.user_info);
         setAccessToken(response.data.token);
+        setCSRFToken(response.data.csrf_token);
       }
       callback();
     },

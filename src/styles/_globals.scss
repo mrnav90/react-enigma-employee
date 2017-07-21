@@ -38,6 +38,9 @@ html, body {
     outline: none;
   }
 }
+.btn-block {
+  margin-bottom: 20px;
+}
 .btn-link {
   @extend .btn-submit;
   text-decoration: none!important;

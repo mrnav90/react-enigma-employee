@@ -11,5 +11,11 @@ export {
   isAuthenticated,
   revokeUser,
   setLanguage,
-  getLanguage
+  getLanguage,
+  setCSRFToken,
+  getCSRFToken
 } from './cookie';
+
+export {
+  ensureAuth
+} from './ensure-auth';

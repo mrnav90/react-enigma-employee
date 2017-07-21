@@ -1,12 +1,14 @@
 import Application from './Application';
-import Login from './Login';
-import NotFound from './NotFound';
+import LoginPage from './Login';
+import PageNotFound from './NotFound';
+import Dashboard from './Dashboard';
 import {RequestPasswordEmail, RequestPasswordPhone, RequestPasswordSuccess} from './RequestPassword';
 
 export {
   Application,
-  Login,
-  NotFound,
+  LoginPage,
+  Dashboard,
+  PageNotFound,
   RequestPasswordEmail,
   RequestPasswordPhone,
   RequestPasswordSuccess

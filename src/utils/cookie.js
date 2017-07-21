@@ -26,6 +26,14 @@ export function getLanguage() {
   return cookie.get('language');
 }
 
+export function setCSRFToken(token) {
+  cookie.set('csrf_token', token, {path: '/'});
+}
+
+export function getCSRFToken() {
+  return cookie.get('csrf_token');
+}
+
 export function isAuthenticated() {
   return cookie.get('userInfo') && cookie.get('token');
 }
