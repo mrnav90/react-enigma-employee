@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {translate} from 'utils';
+import {connect} from 'react-redux';
 
-export default class MessageError extends React.Component {
+class MessageError extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -32,3 +33,11 @@ MessageError.propTypes = {
   field: PropTypes.string.isRequired,
   messageErrors: PropTypes.object.isRequired
 };
+
+const mapStateToProps = (state) => {
+  return {
+    translation: state.i18n
+  };
+};
+
+export default connect(mapStateToProps)(MessageError);

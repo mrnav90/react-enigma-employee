@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import {translate} from 'utils';
-import {closeSidebar} from 'actions';
+import {translate, setLanguage} from 'utils';
+import {closeSidebar, changeLanguage} from 'actions';
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.onChangeLanguage = this.onChangeLanguage.bind(this);
+  }
+
+  onChangeLanguage() {
+    const key = this.props.translation.locale === 'en' ? 'ja' : 'en';
+    this.props.changeLanguage(key);
+    setLanguage(key);
   }
 
   render() {
@@ -19,11 +26,11 @@ class Sidebar extends React.Component {
         <div className={classNames('container animated', {'slide-in-right': isShow, 'slide-out-right': !isShow})}>
           <div className="logo"></div>
           <ul>
-            <li><Link><span className="icon-sidebar top-icon"></span>{translate('top')}</Link></li>
-            <li><Link><span className="icon-sidebar account-icon"></span>{translate('user_information')}</Link></li>
-            <li><Link><span className="icon-sidebar terms-service-icon"></span>{translate('terms_of_service')}</Link></li>
-            <li><Link><span className="icon-sidebar language-icon"></span>{translate('language')}</Link></li>
-            <li><Link><span className="icon-sidebar logout-icon"></span>{translate('logout')}</Link></li>
+            <li><Link><i className="icon-sidebar top-icon"></i>{translate('top')}</Link></li>
+            <li><Link><i className="icon-sidebar account-icon"></i>{translate('user_information')}</Link></li>
+            <li><Link><i className="icon-sidebar terms-service-icon"></i>{translate('terms_of_service')}</Link></li>
+            <li onClick={this.onChangeLanguage}><Link><i className="icon-sidebar language-icon"></i>{translate('language')}</Link></li>
+            <li><Link><i className="icon-sidebar logout-icon"></i>{translate('logout')}</Link></li>
           </ul>
         </div>
       </div>
@@ -33,17 +40,21 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
   sidebar: PropTypes.object.isRequired,
-  closeSidebar: PropTypes.func.isRequired
+  closeSidebar: PropTypes.func.isRequired,
+  translation: PropTypes.object,
+  changeLanguage: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
+    translation: state.i18n,
     sidebar: state.sidebar
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    changeLanguage: (key) => dispatch(changeLanguage(key)),
     closeSidebar: () => dispatch(closeSidebar())
   };
 };

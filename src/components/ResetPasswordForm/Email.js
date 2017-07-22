@@ -117,10 +117,16 @@ ResetPasswordViaEmail.propTypes = {
   requestEmail: PropTypes.func.isRequired
 };
 
+const mapStateToProps = (state) => {
+  return {
+    translation: state.i18n
+  };
+};
+
 const mapDispatchToProps = () => {
   return {
     requestEmail: (data) => resetPassword.actions.email.request({}, {data})
   };
 };
 
-export default connect(null, mapDispatchToProps)(ResetPasswordViaEmail);
+export default connect(mapStateToProps, mapDispatchToProps)(ResetPasswordViaEmail);

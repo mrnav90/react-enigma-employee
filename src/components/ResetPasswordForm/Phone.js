@@ -139,10 +139,16 @@ ResetPasswordViaPhone.propTypes = {
   requestPhone: PropTypes.func.isRequired
 };
 
+const mapStateToProps = (state) => {
+  return {
+    translation: state.i18n
+  };
+};
+
 const mapDispatchToProps = () => {
   return {
     requestPhone: (data) => resetPassword.actions.phone.request({}, {data})
   };
 };
 
-export default connect(null, mapDispatchToProps)(ResetPasswordViaPhone);
+export default connect(mapStateToProps, mapDispatchToProps)(ResetPasswordViaPhone);

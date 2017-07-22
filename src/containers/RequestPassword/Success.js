@@ -3,8 +3,9 @@ import {MasterLayout} from 'components/Layout';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router';
 import {translate} from 'utils';
+import {connect} from 'react-redux';
 
-export default class RequestPasswordSuccess extends React.Component {
+class RequestPasswordSuccess extends React.Component {
   render() {
     return (
       <MasterLayout>
@@ -27,3 +28,11 @@ export default class RequestPasswordSuccess extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    translation: state.i18n
+  };
+};
+
+export default connect(mapStateToProps)(RequestPasswordSuccess);
