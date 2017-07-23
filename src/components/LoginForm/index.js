@@ -8,7 +8,6 @@ import {changeLanguage} from 'actions';
 import LoadingPage from 'components/LoadingPage';
 import MessageError from 'components/MessageError';
 import {translate, setLanguage} from 'utils';
-import {Translate, I18n} from 'react-i18nify';
 import {auth} from 'apis';
 import validate from './validate';
 
@@ -64,11 +63,9 @@ class LoginForm extends React.Component {
         employee_password: employee_password
       };
       this.setState({errors: {}, isSubmit: true});
-      this.props.login(data).then((response) => {
-        const status = response.data.user_info.status;
-        console.log(status);
-        this.context.router.push('/');
+      this.props.login(data).then(() => {
         this.setState({isSubmit: false});
+        this.context.router.push('/');
       }).catch((response) => {
         this.setState({isSubmit: false, messageErrors: response.errors});
       });
@@ -82,8 +79,8 @@ class LoginForm extends React.Component {
         <LoadingPage isShow={isSubmit} />
         <FormGroup>
           <ControlLabel>
-            <Translate value="company_id" />
-            <Translate className="required" value="required" />
+            {translate('company_id')}
+            <span className="required">{translate('required')}</span>
           </ControlLabel>
           <FormControl type="text" disabled={isSubmit} onChange={this.onChangeTextField} value={company_code} maxLength="255" name="company_code" placeholder="ID"/>
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="company_code"/>}
@@ -91,8 +88,8 @@ class LoginForm extends React.Component {
         </FormGroup>
         <FormGroup>
           <ControlLabel>
-            <Translate value="employee_id" />
-            <Translate className="required" value="required" />
+            {translate('employee_id')}
+            <span className="required">{translate('required')}</span>
           </ControlLabel>
           <FormControl type="text" disabled={isSubmit} onChange={this.onChangeTextField} value={employee_code} maxLength="255" name="employee_code" placeholder="ID"/>
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="employee_code"/>}
@@ -100,10 +97,10 @@ class LoginForm extends React.Component {
         </FormGroup>
         <FormGroup>
           <ControlLabel>
-            <Translate value="password" />
-            <Translate className="required" value="required" />
+            {translate('password')}
+            <span className="required">{translate('required')}</span>
           </ControlLabel>
-          <FormControl type={this.state.password_type} onChange={this.onChangeTextField} value={employee_password} disabled={isSubmit} maxLength="255" name="employee_password" placeholder={I18n.t('password')}/>
+          <FormControl type={this.state.password_type} onChange={this.onChangeTextField} value={employee_password} disabled={isSubmit} maxLength="255" name="employee_password" placeholder={translate('password')}/>
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="password"/>}
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="password_short"/>}
           {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="employee_password"/>}
@@ -111,10 +108,10 @@ class LoginForm extends React.Component {
         <FormGroup>
           <Row>
             <Col md={6}>
-              <ControlLabel className="remember-me" disabled={isSubmit}>
+              <ControlLabel className="checkbox-custom" disabled={isSubmit}>
                 <input type="checkbox" onClick={this.onShowPassowrd} />
                 <span className="checkbox-layer"></span>
-                <Translate value="show_password" />
+                {translate('show_password')}
               </ControlLabel>
             </Col>
             <Col md={6}>

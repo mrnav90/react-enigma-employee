@@ -1,42 +1,4 @@
 .login-form {
-  .remember-me {
-    cursor: pointer;
-    input[type="checkbox"] {
-      display: none;
-    }
-    input[type="checkbox"]:checked ~ .checkbox-layer::before {
-      background-color: #ffad38;
-    }
-    .checkbox-layer {
-      position: relative;
-      top: 2px;
-      margin-right: 5px;
-    }
-    .checkbox-layer::before {
-      display: inline-block;
-      content: '';
-      font-size: 22px;
-      border-radius: 2px;
-      width: 15px;
-      height: 15px;
-      background-color: #cccccc;
-    }
-    .checkbox-layer::after {
-      position: absolute;
-      display: none;
-      top: 2px;
-      left: 2px;
-      content: '';
-      width: 11px;
-      height: 10px;
-      background: url(#{$assets-icon-path}check.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-    input[type="checkbox"]:checked ~ .checkbox-layer::after {
-      display: block;
-    }
-  }
   .change-language {
     cursor: pointer;
     font-weight: bold;

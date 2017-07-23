@@ -125,5 +125,7 @@
     "password_short": "Password too short!",
     "email_blank": "Email can not be blank!",
     "email_valid": "Email not valid!",
-    "phone_invalid": "Phone number is invalid!"
+    "phone_invalid": "Phone number is invalid!",
+    "agree": "Agree",
+    "password_not_match": "Password confirmation does not match"
 }

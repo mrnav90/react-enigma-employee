@@ -1,0 +1,20 @@
+.term-service-form {
+  .title {
+    span {display: block};
+    text-align: center;
+    margin-bottom: 20px;;
+  }
+  .term-content {
+    height: 300px;
+    overflow: scroll;
+    padding: 7px;
+    font-family: Hiragino Kaku Gothic ProN;
+    border: 1px solid #cbcbcb;
+    border-radius: 10px;
+  }
+  .checkbox-custom {
+    margin: 20px 0px;
+    display: block;
+    text-align: center;
+  }
+}

@@ -4,7 +4,7 @@ import {REQUEST_HEADER, DEFAULT_LANGUAGE} from 'constants';
 
 axios.interceptors.request.use((config) => {
   if (isAuthenticated()) {
-    config.headers.Authorization = `Bearer ${getAccessToken}`;
+    config.headers.Authorization = `Bearer ${getAccessToken()}`;
   }
   config.headers.Language = getLanguage() ? getLanguage() : DEFAULT_LANGUAGE;
   Object.assign(config.headers, REQUEST_HEADER);

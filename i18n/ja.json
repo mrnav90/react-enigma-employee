@@ -125,5 +125,7 @@
     "password_short": "パスワードが短すぎます。",
     "email_blank": "必須",
     "email_valid": "入力したメールアドレスは無効です。",
-    "phone_invalid": "電話番号が無効です"
+    "phone_invalid": "電話番号が無効です",
+    "agree": "同意する",
+    "password_not_match": "確認用パスワードとパスワードが一致しません。"
 }

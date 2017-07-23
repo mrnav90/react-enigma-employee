@@ -17,5 +17,6 @@ export {
 } from './cookie';
 
 export {
-  ensureAuth
-} from './ensure-auth';
+  ensureAuth,
+  redirectLoginStatus
+} from './router-redirect';

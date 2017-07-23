@@ -2,6 +2,9 @@ import Application from './Application';
 import LoginPage from './Login';
 import PageNotFound from './NotFound';
 import Dashboard from './Dashboard';
+import TermService from './TermService';
+import RegisterUserInfo from './RegisterUserInfo';
+import RegisterSuccess from './RegisterSuccess';
 import {RequestPasswordEmail, RequestPasswordPhone, RequestPasswordSuccess} from './RequestPassword';
 
 export {
@@ -11,5 +14,8 @@ export {
   PageNotFound,
   RequestPasswordEmail,
   RequestPasswordPhone,
-  RequestPasswordSuccess
+  RequestPasswordSuccess,
+  TermService,
+  RegisterUserInfo,
+  RegisterSuccess
 };

@@ -3,7 +3,7 @@ import UniversalCookie from 'universal-cookie';
 const cookie = new UniversalCookie();
 
 export function setUserInfo(data) {
-  cookie.set('userInfo', data, {path: '/'});
+  cookie.set('userInfo', data);
 }
 
 export function getUserInfo() {
@@ -11,7 +11,7 @@ export function getUserInfo() {
 }
 
 export function setAccessToken(token) {
-  cookie.set('token', token, {path: '/'});
+  cookie.set('token', token);
 }
 
 export function getAccessToken() {
@@ -19,7 +19,7 @@ export function getAccessToken() {
 }
 
 export function setLanguage(key) {
-  cookie.set('language', key, {path: '/'});
+  cookie.set('language', key);
 }
 
 export function getLanguage() {
@@ -27,7 +27,7 @@ export function getLanguage() {
 }
 
 export function setCSRFToken(token) {
-  cookie.set('csrf_token', token, {path: '/'});
+  cookie.set('csrf_token', token);
 }
 
 export function getCSRFToken() {
@@ -41,4 +41,5 @@ export function isAuthenticated() {
 export function revokeUser() {
   cookie.remove('userInfo');
   cookie.remove('token');
+  cookie.remove('csrf_token');
 }
