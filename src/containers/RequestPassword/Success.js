@@ -12,7 +12,7 @@ class RequestPasswordSuccess extends React.Component {
         <Grid>
           <Row>
             <Col md={4} mdOffset={4}>
-              <div className="reset-password-success">
+              <div className="page-alert">
                 <h1 className="logo"></h1>
                 <p><strong>{translate('sent')}</strong></p>
                 <p className="title">

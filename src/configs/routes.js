@@ -11,7 +11,9 @@ import {
   RequestPasswordSuccess,
   TermService,
   RegisterUserInfo,
-  RegisterSuccess
+  RegisterSuccess,
+  StopService,
+  WaitingApprove
 } from 'containers';
 
 export default (
@@ -19,6 +21,8 @@ export default (
     <Route path="/" component={Dashboard} onEnter={ensureAuth} />
     <Route path="sign-in" component={LoginPage} onEnter={redirectLoginStatus} />
     <Route path="term-service" component={TermService} />
+    <Route path="stop-service" component={StopService} />
+    <Route path="waiting-approve" component={WaitingApprove} />
     <Route path="register-user-info" component={RegisterUserInfo} />
     <Route path="register-success" component={RegisterSuccess} />
     <Route path="reset-password/email" component={RequestPasswordEmail} />

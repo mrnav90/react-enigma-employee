@@ -12,8 +12,8 @@ import {employee, auth} from 'apis';
 import validate from './validate';
 
 class UserInfoForm extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       name: '',
       email: '',

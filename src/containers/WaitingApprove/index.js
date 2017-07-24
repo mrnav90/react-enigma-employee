@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 import {translate} from 'utils';
 import {connect} from 'react-redux';
 
-class RegisterSuccess extends React.Component {
+class WaitingApprove extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -18,10 +18,9 @@ class RegisterSuccess extends React.Component {
             <Col md={4} mdOffset={4}>
               <div className="page-alert">
                 <h1 className="logo"></h1>
-                <p><strong>{translate('register_complate_title')}</strong></p>
+                <p><strong>{translate('notification')}</strong></p>
                 <p className="title">
-                  <span>{translate('register_complate_content_1')}</span>
-                  <span>{translate('register_complate_content_2')}</span>
+                  <span>{translate('permission_service_title')}</span>
                 </p>
                 <Link className="btn-link btn btn-lg btn-block" to="/sign-in">{translate('go_login_screen')}</Link>
               </div>
@@ -39,4 +38,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(RegisterSuccess);
+export default connect(mapStateToProps)(WaitingApprove);

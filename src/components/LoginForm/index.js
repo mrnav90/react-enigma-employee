@@ -12,8 +12,8 @@ import {auth} from 'apis';
 import validate from './validate';
 
 class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       company_code: '',
       employee_code: '',

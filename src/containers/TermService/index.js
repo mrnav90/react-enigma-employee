@@ -9,8 +9,8 @@ import {translate, revokeUser, getUserInfo, setUserInfo} from 'utils';
 import {employee, auth} from 'apis';
 
 class TermService extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       content: '',
       isLoading: false,

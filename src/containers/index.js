@@ -5,7 +5,13 @@ import Dashboard from './Dashboard';
 import TermService from './TermService';
 import RegisterUserInfo from './RegisterUserInfo';
 import RegisterSuccess from './RegisterSuccess';
-import {RequestPasswordEmail, RequestPasswordPhone, RequestPasswordSuccess} from './RequestPassword';
+import StopService from './StopService';
+import WaitingApprove from './WaitingApprove';
+import {
+  RequestPasswordEmail,
+  RequestPasswordPhone,
+  RequestPasswordSuccess
+} from './RequestPassword';
 
 export {
   Application,
@@ -17,5 +23,7 @@ export {
   RequestPasswordSuccess,
   TermService,
   RegisterUserInfo,
-  RegisterSuccess
+  RegisterSuccess,
+  StopService,
+  WaitingApprove
 };
