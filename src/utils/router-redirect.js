@@ -14,8 +14,16 @@ export function redirectLoginStatus(nextState, replace) {
     const userInfo = getUserInfo();
     switch (userInfo.status) {
       case 2:
+        replace({
+          pathname: '/term-service',
+          state: {nextPathname: nextState.location.pathname}
+        });
         break;
       case 3:
+        replace({
+          pathname: '/register-user-info',
+          state: {nextPathname: nextState.location.pathname}
+        });
         break;
       case 4:
         replace({
@@ -24,6 +32,10 @@ export function redirectLoginStatus(nextState, replace) {
         });
         break;
       case 5:
+        replace({
+          pathname: '/stop-service',
+          state: {nextPathname: nextState.location.pathname}
+        });
         break;
       default: break;
     }

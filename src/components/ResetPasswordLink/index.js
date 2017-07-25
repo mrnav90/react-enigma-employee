@@ -8,7 +8,7 @@ class ResetPasswordLink extends React.Component {
   render() {
     return (
       <Row>
-        <Col md={5} sm={5} xs={6} mdOffset={1} smOffset={1}>
+        <Col md={5} xs={6} mdOffset={1}>
           <div className="forgot-link forgot-email">
             <i className="fa fa-lock icon-lock"></i>
             <Link to="/reset-password/email" className="block-text">
@@ -17,8 +17,8 @@ class ResetPasswordLink extends React.Component {
             </Link>
           </div>
         </Col>
-        <Col md={6} xs={6} sm={6}>
-          <div className="forgot-link forgot-phone">
+        <Col md={6} xs={6}>
+          <div className="forgot-link forgot-phone text-right">
             <i className="fa fa-lock icon-lock"></i>
             <Link to="/reset-password/phone" className="block-text">
               <span>{translate('click_forgot_password')}</span>

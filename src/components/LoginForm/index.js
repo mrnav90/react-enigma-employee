@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
       employee_password: '',
       password_type: 'password',
       errors: {},
-      messageErrors: {},
+      messageError: '',
       isSubmit: false
     };
     this.onShowPassowrd = this.onShowPassowrd.bind(this);
@@ -63,17 +63,30 @@ class LoginForm extends React.Component {
         employee_password: employee_password
       };
       this.setState({errors: {}, isSubmit: true});
-      this.props.login(data).then(() => {
+      this.props.login(data).then((response) => {
         this.setState({isSubmit: false});
-        this.context.router.push('/');
+        switch (response.data.user_info.status) {
+          case 2: this.context.router.push('/term-service'); break;
+          case 3: this.context.router.push('/register-user-info'); break;
+          case 4: this.context.router.push('/'); break;
+          case 5: this.context.router.push('/stop-service'); break;
+          default: break;
+        }
       }).catch((response) => {
-        this.setState({isSubmit: false, messageErrors: response.errors});
+        this.setState({isSubmit: false, messageError: response.message});
+        if (response.status_code === 403) {
+          if (response.errors.status === 1) {
+            this.context.router.push('/waiting-approve');
+          } else {
+            this.context.router.push('/stop-service');
+          }
+        }
       });
     }
   }
 
   render() {
-    const {isSubmit, company_code, employee_code, employee_password, errors} = this.state;
+    const {isSubmit, messageError, company_code, employee_code, employee_password, errors} = this.state;
     return (
       <Form className="login-form" onSubmit={this.onSubmit} name="loginForm" method="POST" noValidate>
         <LoadingPage isShow={isSubmit} />
@@ -84,7 +97,6 @@ class LoginForm extends React.Component {
           </ControlLabel>
           <FormControl type="text" disabled={isSubmit} onChange={this.onChangeTextField} value={company_code} maxLength="255" name="company_code" placeholder="ID"/>
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="company_code"/>}
-          {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="company_code"/>}
         </FormGroup>
         <FormGroup>
           <ControlLabel>
@@ -93,7 +105,6 @@ class LoginForm extends React.Component {
           </ControlLabel>
           <FormControl type="text" disabled={isSubmit} onChange={this.onChangeTextField} value={employee_code} maxLength="255" name="employee_code" placeholder="ID"/>
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="employee_code"/>}
-          {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="employee_code"/>}
         </FormGroup>
         <FormGroup>
           <ControlLabel>
@@ -103,22 +114,22 @@ class LoginForm extends React.Component {
           <FormControl type={this.state.password_type} onChange={this.onChangeTextField} value={employee_password} disabled={isSubmit} maxLength="255" name="employee_password" placeholder={translate('password')}/>
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="password"/>}
           {!isEmpty(errors) && <MessageError messageErrors={errors} field="password_short"/>}
-          {!isEmpty(this.state.messageErrors) && <MessageError messageErrors={this.state.messageErrors} field="employee_password"/>}
         </FormGroup>
         <FormGroup>
           <Row>
-            <Col md={6}>
+            <Col md={6} xs={6}>
               <ControlLabel className="checkbox-custom" disabled={isSubmit}>
                 <input type="checkbox" onClick={this.onShowPassowrd} />
                 <span className="checkbox-layer"></span>
                 {translate('show_password')}
               </ControlLabel>
             </Col>
-            <Col md={6}>
+            <Col md={6} xs={6}>
               <span onClick={this.onChangeLanguage} className="change-language pull-right">{translate('language')}</span>
             </Col>
           </Row>
         </FormGroup>
+        {messageError && <p className="message-error">{messageError}</p>}
         <LaddaButton className="btn-submit btn-login btn btn-lg btn-block" type="submit" data-size={XL} data-style={EXPAND_LEFT} loading={isSubmit}>{translate('login')}</LaddaButton>
       </Form>
     );
